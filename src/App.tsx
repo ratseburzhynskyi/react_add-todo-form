@@ -44,7 +44,7 @@ export const App = () => {
       completed: false,
     };
 
-    setTodos([...todos, newTodo]);
+    setTodos(todos.concat(newTodo));
 
     setTitle('');
     setUserId(0);
@@ -80,8 +80,8 @@ export const App = () => {
             id="user"
             data-cy="userSelect"
             value={userId}
-            onChange={e => {
-              setUserId(+e.target.value);
+            onChange={changeEvent => {
+              setUserId(+changeEvent.target.value);
               setUserError(false);
             }}
           >
